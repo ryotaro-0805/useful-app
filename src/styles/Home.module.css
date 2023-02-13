@@ -2,6 +2,17 @@
   border: solid 1px black;
 }
 
-.pipeData_table th, .pipeData_table td{
+.pipeData_table th{
+  width: calc(100vw/6);
   border: solid 1px black;
+  text-align: center;
+}
+
+.pipeData_table td{
+  border: solid 1px black;
+  text-align: right;
+}
+
+.pipeData_table td::after{
+  content: '　';
 }

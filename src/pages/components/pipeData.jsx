@@ -1,29 +1,11 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-
+import {pipeDatabase} from '../pipeDatabase'
 
 export default function PipeData() {
-    const pipeData = [
-        {
-            a: 6,
-            b: '1/8',
-            outsideDia: 10.5,
-            thickness_sgp: 2,
-            thickness_40: 1.7,
-            thickness_80: 2.4,
-        },
-        {
-            a: 8,
-            b: '1/4',
-            outsideDia: 13.8,
-            thickness_sgp: 2.3,
-            thickness_40: 2.2,
-            thickness_80: 3,
-        },
-    ];
-
-
+    const pipeData = pipeDatabase
+    
     return (
         <>
             <Head>
@@ -36,24 +18,28 @@ export default function PipeData() {
                 <div className={styles.description}>
                     <h2>鋼管データ一覧表</h2>
                     <table className={styles.pipeData_table}>
-                        <tr>
-                            <th className={styles.test}>呼び径(A)</th>
-                            <th>呼び径(B)</th>
-                            <th>外径(φ)</th>
-                            <th>厚み(SGP)</th>
-                            <th>厚み(Sch40)</th>
-                            <th>厚み(Sch80)</th>
-                        </tr>
-                        <tr>
-
-                            {pipeData.map((pipe) => (
-                                <>
-                                <td>{`${pipe.a}A`}</td>
-                                <td>{`${pipe.b}B`}</td>
-                                </>
+                        <thead>
+                            <tr>
+                                <th className={styles.test}>呼び径(A)</th>
+                                <th>呼び径(B)</th>
+                                <th>外径(φ)</th>
+                                <th>厚み(SGP)</th>
+                                <th>厚み(Sch40)</th>
+                                <th>厚み(Sch80)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {pipeData.map((pipe, index) => (
+                                <tr key={index}>
+                                    <td>{`${pipe.a}A`}</td>
+                                    <td>{`${pipe.b}B`}</td>
+                                    <td>{`${pipe.outsideDia}`}</td>
+                                    <td>{`${pipe.thickness_sgp}`}</td>
+                                    <td>{`${pipe.thickness_40}`}</td>
+                                    <td>{`${pipe.thickness_80}`}</td>
+                                </tr>
                             ))}
-                        </tr>
-                        
+                        </tbody>
                     </table>
                     <Link href='/'><button>Topへ戻る</button></Link>
                 </div>
