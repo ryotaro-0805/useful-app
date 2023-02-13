@@ -41,7 +41,7 @@ export default function PipeData() {
                             ))}
                         </tbody>
                     </table>
-                    <Link href='/'><button>Topへ戻る</button></Link>
+                    <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
                 </div>
             </main>
         </>

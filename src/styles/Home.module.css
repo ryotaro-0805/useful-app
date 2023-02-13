@@ -1,3 +1,20 @@
+.button{
+  width: 15%;
+  height: 50px;
+}
+
+/* 
+index
+ */
+ .index_button{
+  width: 15%;
+  height: 50px;
+  margin: 0 20px 0 20px;
+ } 
+
+ /* 
+ pipeData
+  */
 .pipeData_table{
   border: solid 1px black;
 }
@@ -15,4 +32,9 @@
 
 .pipeData_table td::after{
   content: '　';
+}
+
+.index_span{
+  color: rgb(215, 67, 225);
+  text-shadow: black 3px 3px 3px;
 }

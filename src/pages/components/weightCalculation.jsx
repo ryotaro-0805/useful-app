@@ -15,7 +15,7 @@ export default function WeightCalculation() {
       <main className={styles.main}>
         <div className={styles.description}>
             <h2>重量計算アプリ</h2>
-            <Link href='/'><button>Topへ戻る</button></Link>
+            <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
         </div>
       </main>
     </>
