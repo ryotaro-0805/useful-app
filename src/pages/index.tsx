@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
+import Footer from './components/footer'
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
             <Link href='/components/pipeData'><button className={styles.index_button} >鋼管データ一覧表</button></Link>
             <Link href='/components/weightCalculation'><button className={styles.index_button} >重量計算</button></Link>
         </div>
-        <h3 className={styles.index_footer}>This App is created by <span className={styles.index_span}>Ryotaro</span></h3>
       </main>
+      <Footer />
     </>
   )
 }
