@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react';
+import Footer from './Footer'
 
 
 export default function WeightCalculation() {
@@ -37,6 +38,7 @@ export default function WeightCalculation() {
         </div>
             <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
       </main>
+      <Footer /> 
     </>
   )
 }

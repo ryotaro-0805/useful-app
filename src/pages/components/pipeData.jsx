@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import {pipeDatabase} from '../../../public/pipeDatabase'
 import { useRouter } from 'next/router'
+import Footer from './Footer'
 
 export default function PipeData() {
     const pipeData = pipeDatabase
@@ -55,6 +56,7 @@ export default function PipeData() {
                     <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
                 </div>
             </main>
+            <Footer />
         </>
     )
 }
