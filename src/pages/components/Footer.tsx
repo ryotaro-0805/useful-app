@@ -12,7 +12,7 @@ export default function Footer() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={styles.footer_container}>
-                <h3 className={styles.index_footer}>This App is created by <span className={styles.index_span}>Ryotaro</span></h3>
+                <h2 className={styles.index_footer}>This App is created by <span className={styles.index_span}>Ryotaro</span></h2>
             </div>
         </>
     )
