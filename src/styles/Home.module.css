@@ -1,16 +1,28 @@
 .button{
-  width: 15%;
+  width: 30%;
   height: 50px;
+  margin-top: 10px;
 }
 
 /* 
 index
  */
  .index_button{
-  width: 15%;
+  width: 20%;
   height: 50px;
   margin: 0 20px 0 20px;
  } 
+
+ @media screen and (max-width:700px){
+  .index_button{
+    width: 40%;
+    margin:10px 5%;
+   }
+ }
+
+ .index_footer{
+  text-align: center;
+ }
 
  /* 
  pipeData
@@ -20,13 +32,14 @@ index
 }
 
 .pipeData_table th{
-  width: calc(100vw/6);
   border: solid 1px black;
+  font-size: 90%;
   text-align: center;
 }
 
 .pipeData_table td{
   border: solid 1px black;
+  font-size: 80%;
   text-align: right;
 }
 

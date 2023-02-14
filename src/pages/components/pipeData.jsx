@@ -2,9 +2,20 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import {pipeDatabase} from '../../../public/pipeDatabase'
+import { useRouter } from 'next/router'
 
 export default function PipeData() {
     const pipeData = pipeDatabase
+    const router=useRouter();
+    const calcFnc=(data,index)=>{
+        // <Link  href='/components/weightCalculation'></Link>
+        router.push({
+            pathname:'/components/weightCalculation',
+            query:{size:pipeDatabase[index].outsideDia,
+            thickness:data.target.textContent}});
+        // console.log(data.target.textContent);
+        // console.log(pipeDatabase[index].outsideDia);
+    }
     
     return (
         <>
@@ -34,9 +45,9 @@ export default function PipeData() {
                                     <td>{`${pipe.a}A`}</td>
                                     <td>{`${pipe.b}B`}</td>
                                     <td>{`${pipe.outsideDia}`}</td>
-                                    <td>{`${pipe.thickness_sgp}`}</td>
-                                    <td>{`${pipe.thickness_40}`}</td>
-                                    <td>{`${pipe.thickness_80}`}</td>
+                                    <td onClick={(target)=>calcFnc(target,index)} >{`${pipe.thickness_sgp}`}</td>
+                                    <td onClick={(target)=>calcFnc(target,index)}>{`${pipe.thickness_40}`}</td>
+                                    <td onClick={(target)=>calcFnc(target,index)}>{`${pipe.thickness_80}`}</td>
                                 </tr>
                             ))}
                         </tbody>

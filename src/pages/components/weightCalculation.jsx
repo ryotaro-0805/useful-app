@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 
 export default function WeightCalculation() {
+  const router=useRouter();
+  console.log(router.query.size);
+  console.log(router.query.thickness);
   return (
     <>
       <Head>
@@ -15,8 +19,14 @@ export default function WeightCalculation() {
       <main className={styles.main}>
         <div className={styles.description}>
             <h2>重量計算アプリ</h2>
-            <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
+            <form action="">
+            <p>{`外径φ${router.query.size}　厚さt${router.query.thickness}の重量計算を行います。`}</p>
+            <p>長さを入力してください。</p>
+            <input type="number" /> mm
+            <input type="button" value="決定" />
+            </form>
         </div>
+            <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
       </main>
     </>
   )
