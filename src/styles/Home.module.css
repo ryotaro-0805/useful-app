@@ -51,3 +51,15 @@ index
   color: rgb(215, 67, 225);
   text-shadow: black 3px 3px 3px;
 }
+
+/* 
+calculation
+ */
+
+ .calc_div input{
+  font-size: 18px;
+ }
+
+ .calc_div input {
+  margin-left: 15px;
+ }

@@ -25,7 +25,7 @@ export default function WeightCalculation() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
+        <div className={styles.calc_div}>
             <h2>重量計算アプリ</h2>
             <form onSubmit={calcFnc} action="">
             <p>{`外径φ${router.query.size}　厚さt${router.query.thickness}の重量計算を行います。`}</p>
