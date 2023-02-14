@@ -69,6 +69,7 @@ calculation
  */
  .footer_container{
   width: 100%;
+  font-size:70%;
   background: linear-gradient(rgb(179, 209, 179),rgb(36, 107, 36));
   position: absolute;
   bottom: 0;
