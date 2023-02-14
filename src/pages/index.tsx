@@ -2,6 +2,8 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import Footer from './components/Footer'
+import qr from '../../public/img/qr.png';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -18,6 +20,7 @@ export default function Home() {
             <Link href='/components/pipeData'><button className={styles.index_button} >鋼管データ一覧表</button></Link>
             <Link href='/components/weightCalculation'><button className={styles.index_button} >重量計算</button></Link>
         </div>
+        <Image className={styles.qrcode} src={qr} alt='qr-code' />
       </main>
       <Footer />
     </>

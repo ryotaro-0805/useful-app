@@ -25,6 +25,14 @@ index
  }
 
  /* 
+ QRcode
+  */
+.qrcode{
+  display: block;
+  margin: 50px auto;
+}
+ 
+ /* 
  pipeData
   */
 .pipeData_table{
