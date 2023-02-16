@@ -36,7 +36,7 @@ export default function WeightCalculation() {
             </form>
             {result===0?null:<p>計算結果は{result}kgです。</p>}
         </div>
-            <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
+            <Link href='/components/pipeData'><button className={styles.button}>戻る</button></Link>
       </main>
       <Footer /> 
     </>

@@ -4,6 +4,15 @@
   margin-top: 10px;
 }
 
+.cursore{
+  cursor: pointer;
+  transition: .25s;
+}
+
+.cursore:hover{
+  background-color: rgb(185, 187, 187);
+}
+
 /* 
 index
  */

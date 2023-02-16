@@ -18,7 +18,7 @@ export default function Home() {
         <div className={styles.description}>
           <h2>Useful App</h2>
             <Link href='/components/pipeData'><button className={styles.index_button} >鋼管データ一覧表</button></Link>
-            <Link href='/components/weightCalculation'><button className={styles.index_button} >重量計算</button></Link>
+            <Link href='/components/thicknessCalculation'><button className={styles.index_button} >水圧用塞ぎ板</button></Link>
         </div>
         <Image className={styles.qrcode} src={qr} alt='qr-code' />
       </main>
