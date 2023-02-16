@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Footer from './Footer'
+import Link from 'next/link'
 
 export default function PipeData() {
 
@@ -15,8 +16,23 @@ export default function PipeData() {
             <main className={styles.main}>
                 <div className={styles.description}>
                     <h2>塞ぎ板 厚み計算アプリ</h2>
+                    <p>水圧用塞ぎ板の板厚計算を行います。</p>
+                    <p>以下の項目をすべて入力してください。</p>
+                    <br />
+                    <form action="">
+                        <label htmlFor="pressure">圧力(kg/㎠)：
+                            <input type="number" id='pressure' />
+                        </label>
+                        <br />
+                        <label htmlFor="area">圧を受ける面積(㎠)：
+                            <input type="number" id='area' />
+                        </label>
+                        <br />
+                        <input type="submit" value='計算' />
+                    </form>
                 </div>
             </main>
+            <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
             <Footer />
         </>
     )
