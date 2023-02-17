@@ -2,21 +2,33 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Footer from './Footer'
 
 
 export default function WeightCalculation() {
-  const router=useRouter();
-  const ref=useRef();
-  const [result,setResult]=useState(0);
-  const calcFnc=(e)=>{
+  const router = useRouter();
+  const ref = useRef();
+  const [result, setResult] = useState(0);
+  const [preData, setPreData] = useState([]);
+
+  const calcFnc = (e) => {
     e.preventDefault();
-    setResult(
-      ((router.query.size**2-(router.query.size-router.query.thickness*2)**2)/4*3.141592*ref.current.value*7.85*0.000001).toFixed(1)   
-      )
-  }
-  
+    if (ref.current.value) {
+      setResult(
+        ((router.query.size ** 2 - (router.query.size - router.query.thickness * 2) ** 2) / 4 * 3.141592 * ref.current.value * 7.85 * 0.000001).toFixed(1)
+        );
+      }
+    }
+
+    useEffect(()=>{
+      setPreData((inData) => [...inData, 'φ' + router.query.size + '-' + 't' + router.query.thickness + '-' + ref.current.value + 'L' + '-' + result + 'kg']);
+    },[result]);
+    
+    useEffect(() => {
+    ref.current.value = null;
+  }, [preData]);
+
   return (
     <>
       <Head>
@@ -27,18 +39,24 @@ export default function WeightCalculation() {
       </Head>
       <main className={styles.main}>
         <div className={styles.calc_div}>
-            <h2>重量計算アプリ</h2>
-            <form onSubmit={calcFnc} action="">
+          <h2>重量計算アプリ</h2>
+          <form onSubmit={calcFnc} action="">
             <p>{`外径φ${router.query.size}　厚さt${router.query.thickness}の重量計算を行います。`}</p>
             <p>長さを入力してください。</p>
             <input ref={ref} type="number" /> mm
             <input onClick={calcFnc} type="button" value="決定" />
-            </form>
-            {result===0?null:<p>計算結果は{result}kgです。</p>}
+          </form>
+          {result === 0 ? null : <p>計算結果は{result}kgです。</p>}
         </div>
-            <Link href='/components/pipeData'><button className={styles.button}>戻る</button></Link>
+        <div className={styles.weight_results}>
+          {preData.map((data, index) => (
+            <p key={index} >{index+'.'+data}</p>
+          ))
+          }
+        </div>
+        <Link href='/components/pipeData'><button className={styles.button}>戻る</button></Link>
       </main>
-      <Footer /> 
+      <Footer />
     </>
   )
 }

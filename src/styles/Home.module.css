@@ -72,6 +72,11 @@ calculation
   margin-left: 15px;
 }
 
+.weight_results{
+  height: 50vh;
+  background-color: rgb(227, 228, 238);
+  overflow: scroll;
+}
 
  /* 
  thickness 
