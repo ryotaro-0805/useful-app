@@ -10,5 +10,7 @@
 
   
  input{
+  width: 40%;
   font-size: 18px;
+  margin: 5px;
  }
