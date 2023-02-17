@@ -81,6 +81,16 @@ calculation
   margin-left: 15px;
  }
 
+
+ /* 
+ thickness 
+ */
+.thickness_result{
+  margin: 5px;
+  padding: 5px;
+  border: solid black 1px;
+} 
+ 
  /* 
  footer 
  */
