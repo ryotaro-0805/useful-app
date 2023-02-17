@@ -64,36 +64,51 @@ index
   content: '　';
 }
 
-.index_span{
-  color: rgb(215, 67, 225);
-  text-shadow: black 2px 2px 5px;
-}
 
 /* 
 calculation
- */
- .calc_div input {
+*/
+.calc_div input {
   margin-left: 15px;
- }
+}
 
 
  /* 
  thickness 
  */
-.thickness_result{
-  margin: 5px;
-  padding: 5px;
-  border: solid black 1px;
+ .thickness_result{
+   margin: 5px;
+   padding: 5px;
+   border: solid black 1px;
 } 
- 
- /* 
- footer 
- */
- .footer_container{
+
+/* 
+footer 
+*/
+.footer_container{
   width: 100%;
+  height: 50px;
   font-size:70%;
+  text-shadow: white 2px 2px 3px;
   background: linear-gradient(rgb(179, 209, 179),rgb(36, 107, 36));
   position: absolute;
   bottom: 0;
   left: 0;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_span{
+  color: rgb(215, 67, 225);
+  text-shadow: black 2px 2px 5px;
+}
+
+.test{
+  color: rgb(84, 41, 243);
+  transition: 1s;
+}
+
+.test.active{
+  color: red;
+}

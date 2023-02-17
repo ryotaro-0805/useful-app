@@ -16,17 +16,10 @@ export default function PipeData() {
         const length:number=lengthRef.current.value;
         if (pressure && length){
             const ans:number=length*(Math.sqrt(.25*pressure/1000))+.1;
-            // setResult((Math.round(ans*10)/10)*10);
             setResult((Math.ceil(ans*100)/100)*10);
         }
-        // const anstest:number=10*(Math.sqrt(64))+1;
-        // console.log(anstest.toFixed(2));
-        // console.log(`${(ans.toFixed(2))*10}mm`);
-        // console.log(pressureRef.current.value);
-        // console.log(lengthRef.current.value);
-        
     }
-
+    
     return (
         <>
             <Head>

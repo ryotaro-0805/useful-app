@@ -4,8 +4,18 @@ import Link from 'next/link'
 import Footer from './components/Footer'
 import qr from '../../public/img/qr.png';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Home() {
+
+  const [classess,setClassess]=useState<string>(`${styles.test}`);
+  const clickFnc=()=>{
+      if (classess===`${styles.test} ${styles.active}`){
+          setClassess(`${styles.test}`);
+      } else{
+          setClassess(`${styles.test} ${styles.active}`);
+      }
+  }
   return (
     <>
       <Head>
@@ -16,7 +26,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <h2>Useful App</h2>
+          <h2 onClick={clickFnc} className={classess}>Useful App</h2>
             <Link href='/components/pipeData'><button className={styles.index_button} >鋼管データ一覧表</button></Link>
             <Link href='/components/thicknessCalculation'><button className={styles.index_button} >水圧用塞ぎ板</button></Link>
         </div>
