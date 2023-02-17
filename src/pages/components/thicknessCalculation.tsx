@@ -2,8 +2,30 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Footer from './Footer'
 import Link from 'next/link'
+import { useRef, useState } from 'react'
 
 export default function PipeData() {
+
+    const pressureRef=useRef<any>(null);
+    const lengthRef=useRef<any>();
+    const [result,setResult]=useState<any>();
+    
+    const thicknessFnc=(e:any)=>{
+        e.preventDefault();
+        const pressure:number=pressureRef.current.value;
+        const length:number=lengthRef.current.value;
+        if (pressure && length){
+            const ans:number=length*(Math.sqrt(.25*pressure/1000))+.1;
+            // setResult((Math.round(ans*10)/10)*10);
+            setResult((Math.round(ans*10)/10)*10);
+        }
+        // const anstest:number=10*(Math.sqrt(64))+1;
+        // console.log(anstest.toFixed(2));
+        // console.log(`${(ans.toFixed(2))*10}mm`);
+        // console.log(pressureRef.current.value);
+        // console.log(lengthRef.current.value);
+        
+    }
 
     return (
         <>
@@ -19,18 +41,24 @@ export default function PipeData() {
                     <p>水圧用塞ぎ板の板厚計算を行います。</p>
                     <p>以下の項目をすべて入力してください。</p>
                     <br />
-                    <form action="">
+                    <form onSubmit={thicknessFnc} action="">
                         <label htmlFor="pressure">圧力(kg/㎠)：
-                            <input type="number" id='pressure' />
+                            <input ref={pressureRef} type="number" id='pressure' />
                         </label>
                         <br />
-                        <label htmlFor="area">圧を受ける面積(㎠)：
-                            <input type="number" id='area' />
+                        <label htmlFor="length">圧を受ける直径(cm)：
+                            <input ref={lengthRef} type="number" step='.01' id='length' />
                         </label>
                         <br />
-                        <input type="submit" value='計算' />
+                        <input className={styles.button} type="submit" value='計算' />
                     </form>
                 </div>
+                {result &&
+                <>
+                <p className={styles.thickness_result}>必要な厚みは{result}mmです。</p>
+                <p>※ボルト取りでの計算ですが、溶接の場合でも使用可能です。</p>
+                </>
+                }
             </main>
             <Link href='/'><button className={styles.button}>Topへ戻る</button></Link>
             <Footer />
